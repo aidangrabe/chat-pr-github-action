@@ -10,7 +10,6 @@ jobs:
     name: Send message to Teamwork Chat
     steps:
     - name: Send Text
-      uses: aidangrabe/slack-post-action@v1.14
+      uses: aidangrabe/chat-pr-github-action@v1.15
       with:
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        MESSAGE: "GO TEST"
+        CHAT_HOOK_URL: ${{ secrets.CHAT_HOOK_URL }}

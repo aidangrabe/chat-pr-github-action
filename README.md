@@ -1,20 +1,38 @@
-# slack-post-action
-Simple GitHub Action To Send Slack Message
+# chat-pr-github-action Send Teamwork Chat Messages for PRs
 
 ## Inputs
 
-### `SLACK_WEBHOOK`
+### `CHAT_HOOK_URL`
 
-**Required** The slack webhook url. Default `""`.
-
-### `MESSAGE`
-
-**Required** The message to send. Default `""`.
+**Required** The webhook url for Teamwork Chat. Default `""`.
 
 ## Example usage
 
-uses: devtk0582/slack-post-action@v1.0
+uses: aidangrabe/chat-pr-github-action@v1.15
 
 with:
-  SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-  MESSAGE: "Success"
+  CHAT_HOOK_URL: ${{ secrets.CHAT_HOOK_URL }}
+
+## Building
+
+Node and npm are required.
+
+### Install the dependencies
+
+```
+npm install
+```
+
+### Run the build
+
+```
+npm run build
+```
+
+### Create a release
+
+In order for the action to be available on Github, a new tag must be created and specified in the action.yml of the repository using this action:
+
+```
+uses: aidangrabe/chat-pr-github-action@{new github release}
+```

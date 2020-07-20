@@ -1,12 +1,8 @@
-name: 'Teamwork Chat Post'
+name: 'Teamwork Chat PR Bot'
 description: 'Post messages to Teamwork Chat'
 inputs:
-  SLACK_WEBHOOK:  
-    description: ''
-    required: true
-    default: ''
-  MESSAGE:  
-    description: 'Message to send'
+  CHAT_HOOK_URL:  
+    description: 'The Incoming Hook URL to post the messages to'
     required: true
     default: ''
 runs:

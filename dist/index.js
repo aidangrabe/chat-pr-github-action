@@ -2011,8 +2011,7 @@ function sendChatMessage(hookUrl, message) {
 }
 
 try {
-  // TODO rename from Slack :flushed:
-  const chatHookUrl = core.getInput('SLACK_WEBHOOK');
+  const chatHookUrl = core.getInput('CHAT_HOOK_URL');
 
   if (!chatHookUrl) {
     console.log('Invalid input');
