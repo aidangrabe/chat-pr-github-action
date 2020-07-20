@@ -20,7 +20,7 @@ function isFeatureBranch() {
   const headBranchName = getPrBranchName();
   const baseBranchName = payload.pull_request.base.ref;
 
-  return baseBranchName.startsWith(FEATURE_BRANCH_PREFIX) && headBranchName == BASE_BRANCH_NAME;
+  return baseBranchName == BASE_BRANCH_NAME && headBranchName.startsWith(FEATURE_BRANCH_PREFIX);
 }
 
 function logPayload() {
@@ -60,7 +60,10 @@ try {
 
     logPayload();
 
-    if (isMergedPr() && isFeatureBranch()) {
+    console.log("isMergedPr: " + isMergedPr());
+    console.log("isFeatureBranch: " + isFeatureBranch());
+
+    if (isMergedPr() && isFeatureBranch()) {      
       const message = `:twisted_rightwards_arrows: Feature branch \`${getPrBranchName()}\` merged into \`${BASE_BRANCH_NAME}\``;
       sendChatMessage(chatHookUrl, message);
     } else {
