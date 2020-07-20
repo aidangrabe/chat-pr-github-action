@@ -54,7 +54,7 @@ try {
   // TODO rename from Slack :flushed:
   const chatHookUrl = core.getInput('SLACK_WEBHOOK');
 
-  if (!chatHookUrl || !message) {
+  if (!chatHookUrl) {
     console.log('Invalid input');
   } else {
 
@@ -63,6 +63,8 @@ try {
     if (isMergedPr() && isFeatureBranch()) {
       const message = `:twisted_rightwards_arrows: Feature branch \`${getPrBranchName()}\` merged into \`${BASE_BRANCH_NAME}\``;
       sendChatMessage(chatHookUrl, message);
+    } else {
+      console.log("Nothing to send to Chat");
     }
 
   }
